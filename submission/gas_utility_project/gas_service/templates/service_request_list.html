@@ -1,0 +1,29 @@
+<!-- service_request_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Requests</title>
+</head>
+<body>
+    <h1>Service Requests</h1>
+    <ul>
+        {% for request in requests %}
+            <li>
+                <strong>Description:</strong> {{ request.description }}<br>
+                <strong>Status:</strong> {{ request.status }}<br>
+                <strong>Created At:</strong> {{ request.created_at }}<br>
+                <strong>Updated At:</strong> {{ request.updated_at }}
+            </li>
+            <br>
+        {% empty %}
+            <li>No service requests found.</li>
+        {% endfor %}
+    </ul>
+    <form action="/request">
+        <button type="submit">Create Service Request</button>
+    </form>
+</body>
+</html>
